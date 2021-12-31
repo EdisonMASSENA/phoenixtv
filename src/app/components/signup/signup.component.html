@@ -4,17 +4,17 @@
 
         <p></p>
 
-        <mat-form-field appearance="outline" color="accent">
+        <mat-form-field appearance="outline" color="accent" class="inp">
             <mat-label>Pseudo</mat-label>
             <input matInput>
         </mat-form-field>
 
-        <mat-form-field appearance="outline" color="accent">
+        <mat-form-field appearance="outline" color="accent" class="inp">
             <mat-label>Email</mat-label>
             <input matInput>
         </mat-form-field>
 
-        <mat-form-field appearance="outline" color="accent">
+        <mat-form-field appearance="outline" color="accent" class="inp">
             <mat-label>Mot de passe</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'">
             <button mat-icon-button matSuffix (click)="hide = !hide">
