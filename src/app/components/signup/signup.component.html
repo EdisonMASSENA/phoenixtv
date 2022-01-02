@@ -1,4 +1,6 @@
 <div class="container">
+    <mat-toolbar class="toolbar"> <a [routerLink]="''"><img src="assets/logo.png" class="logo"></a> <button mat-raised-button color="primary"
+            [routerLink]="'/login'">S'identifier</button> </mat-toolbar>
 
     <div class="form ">
 
@@ -6,24 +8,50 @@
 
         <mat-form-field appearance="outline" color="accent" class="inp">
             <mat-label>Pseudo</mat-label>
-            <input matInput>
+            <input [(ngModel)]="form.pseudo" matInput required>
+            <mat-error *ngIf="diaFormControl.hasError('required')">
+                Pseudo <strong>requis</strong>
+               </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" color="accent" class="inp">
             <mat-label>Email</mat-label>
-            <input matInput>
+            <input [(ngModel)]="form.email" matInput required>
+            <mat-error *ngIf="diaFormControl.hasError('required')">
+                Email <strong>requis</strong>
+               </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" color="accent" class="inp">
             <mat-label>Mot de passe</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'">
+            <input matInput [(ngModel)]="form.mdp" [type]="hide ? 'password' : 'text'" required>
+            <mat-error *ngIf="diaFormControl.hasError('required')">
+                Mot de passe <strong>requis</strong>
+               </mat-error>
             <button mat-icon-button matSuffix (click)="hide = !hide">
                 <mat-icon color="primary">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>
 
-        <button mat-raised-button color="primary" >S'inscrire</button>
-       
+        <!-- <mat-form-field appearance="outline" color="accent" class="inp">
+            <mat-label>Confirmation mot de passe</mat-label>
+            <input matInput [(ngModel)]="form.mdpcheck" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide">
+                <mat-icon color="primary">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field> -->
+
+        <mat-form-field class="example-chip-list" appearance="outline" color="accent">
+            <mat-label>Genres</mat-label>
+            <mat-chip-list #chipList aria-label="Video keywords" multiple  [(ngModel)]="form.preference">
+              <mat-chip *ngFor="let keyword of keywords" [selected]="keyword" [value]="keyword" color="accent">
+                {{keyword}}
+              </mat-chip>
+            </mat-chip-list>
+          </mat-form-field>
+
+        <button mat-raised-button (click)="createUser()" color="primary">S'inscrire</button>
+
     </div>
 
 </div>
