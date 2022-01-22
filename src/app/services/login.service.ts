@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 
 export class LoginService {
 
-  private url = "https://api-phx.herokuapp.com";
+  private url = "http://localhost/api-phx";
 
   constructor(private http: HttpClient) { }
 
