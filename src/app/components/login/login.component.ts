@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -48,11 +48,11 @@ export class LoginComponent implements OnInit {
 
         let msg = 'Mauvais mot de passe'
 
-        // this.snackBar.open(msg, 'Fermer', {
-        //   duration: 3000,
-        //   horizontalPosition: "center",
-        //   verticalPosition: "bottom",
-        // });
+        this.snackBar.open(msg, 'Fermer', {
+          duration: 3000,
+          horizontalPosition: "center",
+          verticalPosition: "bottom",
+        });
 
       }
     );

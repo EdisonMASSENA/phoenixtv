@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 
 export class LoginService {
 
-  private url = "http://localhost:80/api-phx";
+  private url = "http://localhost/api-phx";
 
   constructor(private http: HttpClient) { }
 
