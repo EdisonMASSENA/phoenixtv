@@ -18,6 +18,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FirstComponent } from './components/first/first.component';
 import { ProfilComponent } from './components/profil/profil.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ProfilComponent } from './components/profil/profil.component';
     LoginComponent,
     SignupComponent,
     FirstComponent,
-    ProfilComponent
+    ProfilComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

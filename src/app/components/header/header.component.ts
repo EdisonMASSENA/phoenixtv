@@ -3,19 +3,15 @@ import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
 
 @Component({
-  selector: 'app-profil',
-  templateUrl: './profil.component.html',
-  styleUrls: ['./profil.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class ProfilComponent implements OnInit {
-
-  user:any;
+export class HeaderComponent implements OnInit {
 
   constructor(private token: TokenService, private router: Router) { }
 
   ngOnInit(): void {
-     this.user = this.token.getUser();
-    //  console.log(this.user)
   }
 
   logout(): void {

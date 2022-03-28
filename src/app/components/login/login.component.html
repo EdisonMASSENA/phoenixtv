@@ -1,9 +1,10 @@
 <div class="container">
-    <mat-toolbar class="toolbar"> <a [routerLink]="''"><img src="assets/logo.png" class="logo"></a>  </mat-toolbar>
+
 
     <div class="form">
 
-        <p></p>
+        <span><a [routerLink]="''"><img src="assets/logo.png" class="logo"></a></span>
+        <p class="ident">Identifiez-vous avec votre adresse email</p>
 
         <mat-form-field appearance="outline" color="accent" class="inp">
             <mat-label>Email</mat-label>
@@ -12,7 +13,7 @@
 
         <mat-form-field appearance="outline" color="accent" class="inp">
             <mat-label>Mot de passe</mat-label>
-            <input matInput [(ngModel)]="form.mdp" [type]="hide ? 'password' : 'text'">
+            <input (keyup.enter)="login()" matInput [(ngModel)]="form.mdp" [type]="hide ? 'password' : 'text'">
             <button mat-icon-button matSuffix (click)="hide = !hide">
                 <mat-icon color="primary">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
@@ -20,7 +21,7 @@
 
         <button mat-raised-button (click)="login()" color="primary">S'identifier</button>
 
-        <p class="redir">Première visite ? <a class="grey" [routerLink]="'/signup'"> Inscrivez-vous. </a> </p>
+        <p class="redir">Première visite ? <a class="grey" [routerLink]="'/signup'"> Inscrivez-vous </a> </p>
 
     </div>
 
