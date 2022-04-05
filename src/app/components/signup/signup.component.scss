@@ -15,12 +15,18 @@
     color: #FF6F00 ;
 }
 
-.toolbar{
-    background: transparent;
-    padding: 50px 100px;
-    justify-content: space-between;
+span{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
-.logo{
-    width: 70px;
-}
+// .toolbar{
+//     background: transparent;
+//     padding: 50px 100px;
+//     justify-content: space-between;
+// }
+
+// .logo{
+//     width: 70px;
+// }

@@ -1,8 +1,18 @@
 .container{
     background: #040617;
     width: 100%;
-    height: 100%;
+    height: 120vh;
 }
+
+// .toolbar{
+//     background: transparent;
+//     padding: 50px 100px;
+//     justify-content: space-between;
+// }
+
+// .logo{
+//     width: 70px;
+// }
 
 .form{
     display: flex;
@@ -15,16 +25,6 @@
     color: #FF6F00 ;
 }
 
-.toolbar{
-    background: transparent;
-    padding: 50px 100px;
-    justify-content: space-between;
-}
-
-.logo{
-    width: 70px;
-}
-
 .redir{
     margin-top: 5px;
     color: gray;
@@ -32,4 +32,15 @@
 
 .grey{
     color: rgb(206, 206, 206);
+}
+
+span{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.ident{
+    text-align: center;
+    font-size: 25px;
 }
