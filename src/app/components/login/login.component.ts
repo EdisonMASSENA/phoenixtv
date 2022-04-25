@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.router.navigate(['/profil']);
+        this.router.navigate(['/browse']);
 
       },
       err => {

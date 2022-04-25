@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatChipsModule} from '@angular/material/chips';
 import { DatePipe } from '@angular/common'
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+import {MatCardModule} from '@angular/material/card';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,7 @@ import { FirstComponent } from './components/first/first.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { BrowseComponent } from './components/browse/browse.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { HeaderComponent } from './components/header/header.component';
     FirstComponent,
     ProfilComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    BrowseComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ import { HeaderComponent } from './components/header/header.component';
     FormsModule,
     HttpClientModule,
     MatChipsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule
   ],
   providers: [
     DatePipe
