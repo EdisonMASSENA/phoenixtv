@@ -11,7 +11,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { DatePipe } from '@angular/common'
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 import {MatCardModule} from '@angular/material/card';
-
+// import {SlickCarouselModule} from 'ngx-slick-carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +23,7 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowseComponent } from './components/browse/browse.component';
+import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { BrowseComponent } from './components/browse/browse.component';
     ProfilComponent,
     FooterComponent,
     HeaderComponent,
-    BrowseComponent
+    BrowseComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { BrowseComponent } from './components/browse/browse.component';
     HttpClientModule,
     MatChipsModule,
     MatSnackBarModule,
-    MatCardModule
+    MatCardModule,
+    // SlickCarouselModule
   ],
   providers: [
     DatePipe
