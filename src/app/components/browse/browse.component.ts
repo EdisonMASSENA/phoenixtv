@@ -9,23 +9,34 @@ import { GetFilmService } from 'src/app/services/get-film.service';
 })
 export class BrowseComponent implements OnInit {
 
-  films: Film[] = [];
+  popular: Film[] = [];
+  trending: Film[] = [];
+  // films: Film[] = [];
+
+  sliderConfig = {
+    slidesToShow: 9,
+    slidesToScroll: 2,
+    arrows: true,
+    autoplay: false
+  };
 
   constructor(private filmService: GetFilmService) { }
 
   ngOnInit(): void {
 
-    this.recupFilm();
+    this.filmPopulaire();
+    this.filmTrend();
+
   
   }
 
 
-  recupFilm(){
-    this.filmService.getPopulaire().subscribe({
+  filmPopulaire(){
+    this.filmService.getPopular().subscribe({
       next: (data) => {
-        this.films = data.results;
-        this.films.splice(7);
-        console.log(this.films);
+        this.popular = data.results;
+        // this.popular.splice(7);
+        console.log(this.popular);
       },
       error: (e) => console.error(e)
     });
@@ -33,4 +44,15 @@ export class BrowseComponent implements OnInit {
   }
 
 
+  filmTrend(){
+    this.filmService.getTrend().subscribe({
+      next: (data) => {
+        this.trending = data.results;
+        // this.trending.splice(7);
+        console.log(this.trending);
+      },
+      error: (e) => console.error(e)
+    });
+
+  }
 }

@@ -7,9 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SliderComponent implements OnInit {
 
-  // @Input() sliderConfig: any;
-  // @Input() movies: string;
-  // @Input() title: string;
+  @Input() sliderConfig: any;
+  @Input() films : any;
+  @Input() title: string = '';
 
   constructor() { }
 

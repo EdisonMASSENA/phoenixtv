@@ -11,10 +11,19 @@ export class GetFilmService {
 
   constructor(private http: HttpClient) { }
 
-  getPopulaire(): Observable<any> {
+  getPopular(): Observable<any> {
     // return this.http.get(`${this.url}/getFilm.php`);
     return this.http.get("https://api.themoviedb.org/3/movie/popular?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US&page=1");
   }
 
+  getLatest(): Observable<any> {
+    // return this.http.get(`${this.url}/getFilm.php`);
+    return this.http.get("https://api.themoviedb.org/3/movie/latest?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US&page=1");
+  }
+
+  getTrend(): Observable<any> {
+    // return this.http.get(`${this.url}/getFilm.php`);
+    return this.http.get("https://api.themoviedb.org/3/trending/all/week?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US&page=1");
+  }
 
 }

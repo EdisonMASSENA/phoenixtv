@@ -1,50 +1,24 @@
 <app-header></app-header>
 
 
+<div class="header__banner" [ngStyle]="{'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url(http://image.tmdb.org/t/p/original/' + trending[0].poster_path +')'}">
+  <h2>{{trending[0].title}}</h2>
+  <div class="header__buttons">
+    <button class="play-button">
+      <mat-icon>arrow_right</mat-icon>
+      <span>Play</span>
+    </button>
 
-  <div class="header__banner" [ngStyle]="{'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url(http://image.tmdb.org/t/p/w500/' + films[0].poster_path +')'}">
-    <h2>{{films[0].title}}</h2>
-    <!-- <div class="header__buttons"> -->
-<!--   
-      <button class="play-button">
-        <mat-icon>arrow_right</mat-icon>
-        <span>Play</span>
-      </button>
-  
-      <button class="more-button">
-        <mat-icon>info</mat-icon>
-        <span>More Info</span>
-      </button>
-    </div>
-   -->
+    <button class="more-button">
+      <mat-icon>info</mat-icon>
+      <span>More Info</span>
+    </button>
   </div>
-  
-    <section >
-      <span class="categorie populaire">Populaire</span>
-      <div class="populaire">
-  
-        <mat-card mat-elevation-z4 class="example-card" *ngFor="let film of films">
-  
-          <!-- <mat-card-header> -->
-          <!-- <mat-card-title>{{film.title}}</mat-card-title> -->
-          <!-- </mat-card-header> -->
-          <img mat-card-image src="http://image.tmdb.org/t/p/w500/{{film.backdrop_path}}" alt="">
-  
-        </mat-card>
-  
-      </div>
-    </section>
-  
-    <section>
-      <span class="categorie">Action</span>
-      <div>
-  
-        <mat-card class="example-card">
-          <img mat-card-image src="" alt="">
-        </mat-card>
-  
-      </div>
-    </section>
+
+</div>
 
 
-
+<div class="body" style="margin-top: 30rem;">
+  <app-slider title="Trending" [films]="trending" [sliderConfig]="sliderConfig"></app-slider>
+  <app-slider title="Popular" [films]="popular" [sliderConfig]="sliderConfig"></app-slider>
+</div>

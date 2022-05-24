@@ -11,7 +11,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { DatePipe } from '@angular/common'
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 import {MatCardModule} from '@angular/material/card';
-// import {SlickCarouselModule} from 'ngx-slick-carousel';
+import {SlickCarouselModule} from 'ngx-slick-carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,7 +51,7 @@ import { SliderComponent } from './components/slider/slider.component';
     MatChipsModule,
     MatSnackBarModule,
     MatCardModule,
-    // SlickCarouselModule
+    SlickCarouselModule
   ],
   providers: [
     DatePipe
