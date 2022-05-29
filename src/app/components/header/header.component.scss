@@ -1,14 +1,31 @@
 .toolbar{
     height: 9vh;
-    align-items: center;
-    background: black;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3vw;
+    z-index: 10;
+    position: fixed;
+    transition: all 0.3s;
+    transition-timing-function: ease-in;
+    &.sticky {
+        background-color: #000000ec;
+        z-index: 100;
+    }
 }
 
 button{
-    font-weight: 400;
-    margin-right: 6vw;
+    font-weight: 500;
 }
 
 .logo{
-    width: 50px;
+    margin-right: 2vw;
+}
+
+img{
+    width: 3em;
+}
+
+.left{
+    display: flex;
 }

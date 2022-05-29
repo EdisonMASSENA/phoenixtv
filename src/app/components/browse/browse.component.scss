@@ -1,33 +1,28 @@
-.example-card {
-    width: 160px;
-    margin-right: 10px;
-}
-
-.populaire {
-  height: 20vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 30px;
-}
-
-section{
-  margin-top: 60px;
-}
-
-.categorie {
-  margin-left: 30px;
-}
-
 .header__banner {
-  background-position: top center;
   background-size: cover;
   width:100%;
-  position: absolute;
-  height: 80vh;
-  top:10;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  height: 85vh;
+}
+
+.slide{
+  margin-top: -15vh;
+}
+
+
+h2 {
+  font-size: 3rem;
+  color: lightgray;
+}
+
+.titlebloc{
+  padding-top: 45vh;
+  margin-left: 3vw;
+}
+
+.buttons{
+  margin-top: 7vh;
+}
+
+.more{
+  margin-left: 3vw; 
 }

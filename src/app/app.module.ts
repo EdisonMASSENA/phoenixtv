@@ -51,7 +51,7 @@ import { SliderComponent } from './components/slider/slider.component';
     MatChipsModule,
     MatSnackBarModule,
     MatCardModule,
-    SlickCarouselModule
+    SlickCarouselModule,
   ],
   providers: [
     DatePipe

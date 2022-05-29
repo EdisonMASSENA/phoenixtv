@@ -1,19 +1,27 @@
-<mat-toolbar class="toolbar"> 
-    <a [routerLink]="''"><img src="assets/logo.png" class="logo"></a>
-    <button mat-button color="primary" [routerLink]="''">Accueil</button>
-    <button mat-button color="primary" [routerLink]="'serie'">Séries</button>
-    <button mat-button color="primary" [routerLink]="'film'">Film</button>
-    <button mat-button color="primary" [routerLink]="'favoris'">Favoris</button>
-    <!-- recherche -->
-    <!-- <mat-form-field color="accent" appearance="outline">
+<mat-toolbar class="toolbar" id="stickyHeader" [class.sticky]="sticky" #stickHeader>
+
+    
+    <div class="left">
+        <a [routerLink]="''" class="logo"><img src="assets/logo.png" ></a>
+        <button mat-button color="primary" [routerLink]="''">Accueil</button>
+        <button mat-button color="primary" [routerLink]="'serie'">Séries</button>
+        <button mat-button color="primary" [routerLink]="'film'">Film</button>
+        <button mat-button color="primary" [routerLink]="'favoris'">Favoris</button>
+    </div>
+
+    <div class="right">
+        <!-- recherche -->
+        <!-- <mat-form-field color="accent" appearance="outline">
         <mat-label>Outline form field</mat-label>
         <input matInput placeholder="Placeholder">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint>Hint</mat-hint>
-    </mat-form-field> -->
-    <!-- compte -->
-    <button mat-icon-button class="compte" aria-label="Example icon-button with a heart icon">
-        <mat-icon>account_circle</mat-icon>
-    </button>
+        </mat-form-field> -->
+        <!-- compte -->
+        <button mat-icon-button class="compte" aria-label="Example icon-button with a heart icon">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+    </div>
+
 
 </mat-toolbar>

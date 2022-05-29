@@ -11,7 +11,6 @@ export class BrowseComponent implements OnInit {
 
   popular: Film[] = [];
   trending: Film[] = [];
-  // films: Film[] = [];
 
   sliderConfig = {
     slidesToShow: 9,
@@ -35,7 +34,6 @@ export class BrowseComponent implements OnInit {
     this.filmService.getPopular().subscribe({
       next: (data) => {
         this.popular = data.results;
-        // this.popular.splice(7);
         console.log(this.popular);
       },
       error: (e) => console.error(e)
@@ -48,7 +46,6 @@ export class BrowseComponent implements OnInit {
     this.filmService.getTrend().subscribe({
       next: (data) => {
         this.trending = data.results;
-        // this.trending.splice(7);
         console.log(this.trending);
       },
       error: (e) => console.error(e)

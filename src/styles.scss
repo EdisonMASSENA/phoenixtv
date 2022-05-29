@@ -10,3 +10,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
 p,span{
     color: white;
 }
+
+.slick-next {
+    right:20px;
+    z-index: 99;
+    &:before {
+      font-size: 40px;
+    }
+  }
+  
+  .slick-prev {
+    left: 20px;
+    z-index: 99;
+    &:before {
+      font-size: 40px;
+    }
+  }
