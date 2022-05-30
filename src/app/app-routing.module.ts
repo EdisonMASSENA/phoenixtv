@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowseComponent } from './components/browse/browse.component';
 import { FirstComponent } from './components/first/first.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfilComponent } from './components/profil/profil.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'profil', component: ProfilComponent },
+  { path: 'browse', component: BrowseComponent },
 ];
 
 @NgModule({

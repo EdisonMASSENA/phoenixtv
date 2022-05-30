@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+
+<div class="header__banner" [ngStyle]="{'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url(http://image.tmdb.org/t/p/original/' + trending[i].poster_path +')'}">
+  
+
+  <div class="titlebloc">
+
+    <h2>{{trending[i].title || trending[i].name}}</h2>
+    <div class="buttons">
+
+      <button mat-flat-button color="primary" class="play">
+        <mat-icon>play_arrow</mat-icon>
+        <span>Play</span>
+      </button>
+  
+      <button mat-stroked-button class="more">
+        <mat-icon>info</mat-icon>
+        <span>More Info</span>
+      </button>
+
+    </div>
+
+  </div>
+
+ 
+</div>
+
+<div class="slide" >
+  <app-slider title="Trending" [films]="trending" [sliderConfig]="sliderConfig"></app-slider>
+  <app-slider title="Popular" [films]="popular" [sliderConfig]="sliderConfig"></app-slider>
+</div>
