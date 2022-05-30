@@ -1,12 +1,12 @@
 <app-header></app-header>
 
 
-<div class="header__banner" [ngStyle]="{'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url(http://image.tmdb.org/t/p/original/' + trending[1].poster_path +')'}">
+<div class="header__banner" [ngStyle]="{'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url(http://image.tmdb.org/t/p/original/' + trending[i].poster_path +')'}">
   
 
   <div class="titlebloc">
 
-    <h2>{{trending[1].title}}</h2>
+    <h2>{{trending[i].title || trending[i].name}}</h2>
     <div class="buttons">
 
       <button mat-flat-button color="primary" class="play">

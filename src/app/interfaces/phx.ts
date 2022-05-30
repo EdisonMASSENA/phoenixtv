@@ -17,4 +17,5 @@ export interface Film {
     backdrop_path:string;
     title: string;
     poster_path:string;
+    name:string;
 }
