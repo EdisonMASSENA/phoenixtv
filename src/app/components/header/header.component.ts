@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { GetFilmService } from 'src/app/services/get-film.service';
 import { TokenService } from 'src/app/services/token.service';
 
 @Component({
@@ -11,8 +12,10 @@ import { TokenService } from 'src/app/services/token.service';
 export class HeaderComponent implements OnInit {
 
   sticky = false;
+  research!: string;
+  searchRes!: string;
 
-  constructor(private token: TokenService, private router: Router) { }
+  constructor(private token: TokenService, private router: Router, private filmService: GetFilmService) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +26,16 @@ export class HeaderComponent implements OnInit {
     // let msg = 'Déconnexion';
     // this.snackbar(msg);
   };
+
+  searchbar(){
+    this.filmService.search(this.research).subscribe({
+      next: (data) => {
+        this.searchRes = data.results;
+        console.log(this.searchRes);
+      },
+      error: (e) => console.error(e)
+    });
+  }
 
   
   @ViewChild('stickHeader') header!: ElementRef;
