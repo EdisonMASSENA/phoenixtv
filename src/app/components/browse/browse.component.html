@@ -1,52 +1,32 @@
 <app-header></app-header>
 
-<section>
-    <span>Populaire</span>
 
-    <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
-      
-</section>
+<div class="header__banner" [ngStyle]="{'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url(http://image.tmdb.org/t/p/original/' + trending[i].poster_path +')'}">
+  
 
+  <div class="titlebloc">
 
-<section>
-    <span>Action</span>
+    <h2>{{trending[i].title || trending[i].name}}</h2>
+    <div class="buttons">
 
-    <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
-      
-</section>
+      <button mat-flat-button color="primary" class="play">
+        <mat-icon>play_arrow</mat-icon>
+        <span>Play</span>
+      </button>
+  
+      <button mat-stroked-button class="more">
+        <mat-icon>info</mat-icon>
+        <span>More Info</span>
+      </button>
+
+    </div>
+
+  </div>
+
+ 
+</div>
+
+<div class="slide" >
+  <app-slider title="Trending" [films]="trending" [sliderConfig]="sliderConfig"></app-slider>
+  <app-slider title="Popular" [films]="popular" [sliderConfig]="sliderConfig"></app-slider>
+</div>
