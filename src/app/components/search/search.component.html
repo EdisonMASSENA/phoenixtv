@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<div class="container">
+
+    <div class="title">
+        <span>Résultats pour "{{research}}"</span>
+        <!-- <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">Affiner</button>
+        <mat-menu xPosition="before" #menu="matMenu">
+            <button (click)="tri()" mat-menu-item>
+                <mat-checkbox [(ngModel)]="seriechk">Séries</mat-checkbox>
+            </button>
+            <button (click)="tri()" mat-menu-item>
+                <mat-checkbox [(ngModel)]="filmchk">Films</mat-checkbox>
+            </button>
+        </mat-menu> -->
+    </div>
+
+    <div class="results">
+
+        <mat-card class="slick-item" *ngFor="let m of searchRes">
+            <!-- <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header> -->
+            <img mat-card-image src="https://image.tmdb.org/t/p/w200{{m?.poster_path}}" alt="{{m.title}}">
+            <!-- <mat-card-content>
+    
+        </mat-card-content> -->
+            <!-- <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+        </mat-card-actions> -->
+        </mat-card>
+    </div>
+
+</div>
