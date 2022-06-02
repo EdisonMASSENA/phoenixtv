@@ -12,12 +12,15 @@ import { TokenService } from 'src/app/services/token.service';
 export class HeaderComponent implements OnInit {
 
   sticky = false;
-  research!: string;
-  searchRes!: string;
+  research!:string;
 
-  constructor(private token: TokenService, private router: Router, private filmService: GetFilmService) { }
+  constructor(private token: TokenService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  searchbar(){
+    this.router.navigate(["/search"], { queryParams: {research: this.research} });
   }
 
   logout(): void {
@@ -27,15 +30,6 @@ export class HeaderComponent implements OnInit {
     // this.snackbar(msg);
   };
 
-  searchbar(){
-    this.filmService.search(this.research).subscribe({
-      next: (data) => {
-        this.searchRes = data.results;
-        console.log(this.searchRes);
-      },
-      error: (e) => console.error(e)
-    });
-  }
 
   
   @ViewChild('stickHeader') header!: ElementRef;

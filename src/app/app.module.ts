@@ -12,6 +12,7 @@ import { DatePipe } from '@angular/common'
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {SlickCarouselModule} from 'ngx-slick-carousel';
 
@@ -26,6 +27,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowseComponent } from './components/browse/browse.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { SearchComponent } from './components/search/search.component';
+import { FilmComponent } from './components/film/film.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import { SliderComponent } from './components/slider/slider.component';
     FooterComponent,
     HeaderComponent,
     BrowseComponent,
-    SliderComponent
+    SliderComponent,
+    SearchComponent,
+    FilmComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +60,7 @@ import { SliderComponent } from './components/slider/slider.component';
     MatCardModule,
     MatMenuModule,
     SlickCarouselModule,
+    MatCheckboxModule,
   ],
   providers: [
     DatePipe
