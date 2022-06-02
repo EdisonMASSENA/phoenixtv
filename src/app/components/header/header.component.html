@@ -2,7 +2,7 @@
 
     
     <div class="left">
-        <a routerLink="" class="logo"><img src="assets/logo.png" ></a>
+        <a routerLink="/browse" class="logo"><img src="assets/logo.png" ></a>
         <button mat-button color="primary" routerLink="/browse">Accueil</button>
         <button mat-button color="primary" routerLink="/serie">Séries</button>
         <button mat-button color="primary" routerLink="/film">Film</button>
@@ -10,11 +10,13 @@
     </div>
 
     <div class="right">
+
         <mat-form-field  class="search" color="accent" appearance="outline">
             <mat-label>Recherche</mat-label>
-            <input matInput >
+            <input matInput [(ngModel)]="research" (keyup.enter)="searchbar()">
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
+
         <button mat-icon-button [matMenuTriggerFor]="menu">
             <mat-icon>account_circle</mat-icon>
             <mat-icon>arrow_drop_down</mat-icon>
@@ -29,6 +31,7 @@
               <span>Deconnexion</span>
             </button>
         </mat-menu>
+        
     </div>
 
 
