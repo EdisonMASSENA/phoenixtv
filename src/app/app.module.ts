@@ -29,6 +29,7 @@ import { BrowseComponent } from './components/browse/browse.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { SearchComponent } from './components/search/search.component';
 import { FilmComponent } from './components/film/film.component';
+import { SerieComponent } from './components/serie/serie.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FilmComponent } from './components/film/film.component';
     BrowseComponent,
     SliderComponent,
     SearchComponent,
-    FilmComponent
+    FilmComponent,
+    SerieComponent
   ],
   imports: [
     BrowserModule,

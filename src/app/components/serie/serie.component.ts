@@ -3,13 +3,12 @@ import { Film } from 'src/app/interfaces/phx';
 import { GetFilmService } from 'src/app/services/get-film.service';
 
 @Component({
-  selector: 'app-film',
-  templateUrl: './film.component.html',
-  styleUrls: ['./film.component.scss']
+  selector: 'app-serie',
+  templateUrl: './serie.component.html',
+  styleUrls: ['./serie.component.scss']
 })
-export class FilmComponent implements OnInit {
+export class SerieComponent implements OnInit {
 
-  
   popular: Film[] = [];
   trending: Film[] = [];
   i = 1;
@@ -25,14 +24,14 @@ export class FilmComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.filmPopulaire();
+    this.tvPopulaire();
 
   
   }
 
 
-  filmPopulaire(){
-    this.filmService.getPopularFilm().subscribe({
+  tvPopulaire(){
+    this.filmService.getPopularTv().subscribe({
       next: (data) => {
         this.popular = data.results;
         console.log(this.popular);

@@ -31,6 +31,21 @@ export class GetFilmService {
     return this.http.get(`https://api.themoviedb.org/3/search/multi?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US&query=${reasearch}&page=1&include_adult=false`);
   }
 
+  getPopularTv(): Observable<any> {
+    // return this.http.get(`${this.url}/getFilm.php`);
+    return this.http.get(`https://api.themoviedb.org/3/tv/popular?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US&page=1`);
+  }
+
+  getPopularFilm(): Observable<any> {
+    // return this.http.get(`${this.url}/getFilm.php`);
+    return this.http.get(`https://api.themoviedb.org/3/movie/popular?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US&page=1`);
+  }
+  
+  // getGenreFilm(genre): Observable<any> {
+  //   // return this.http.get(`${this.url}/getFilm.php`);
+  //   return this.http.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US`);
+  // }
+
   // searchFilm(reasearch: any): Observable<any> {
   //   // return this.http.get(`${this.url}/getFilm.php`);
   //   return this.http.get(`https://api.themoviedb.org/3/search/movie?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US&query=${reasearch}&page=1&include_adult=false`);
