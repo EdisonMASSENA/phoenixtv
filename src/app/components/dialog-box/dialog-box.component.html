@@ -1,0 +1,161 @@
+<h1 mat-dialog-title> Action :: <strong>{{action}}</strong></h1>
+
+<div mat-dialog-content [ngSwitch]="true">
+
+  <div *ngSwitchCase=" action === 'Ajouter' || action === 'Modifier' ">
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Projet</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.projet" required>
+      <mat-error *ngIf="diaFormControl.hasError('required')">
+        Projet <strong>requis</strong>
+       </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Priorité</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.priorite">
+      <mat-error *ngIf="diaFormControl.hasError('required')">
+        Priorité <strong>requis</strong>
+       </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Chef de projet</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.chef" required>
+      <mat-error *ngIf="diaFormControl.hasError('required')">
+       Chef de projet <strong>requis</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Axe du projet</mat-label>
+      <mat-select [(ngModel)]="local_data.type" >
+        <mat-option [value]="type.value" *ngFor="let type of types">
+          {{ type.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+      
+    <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+    <p class="lab">Avancement:</p>
+    <mat-slider class="progRow" thumbLabel="true" tickInterval="25" [(ngModel)]="local_data.progress"></mat-slider>
+
+    <div class="flex">
+
+      <!-- <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" [(ngModel)]="local_data.etat" >
+        <mat-label>État :</mat-label>
+        <mat-radio-button class="radio-button" value="assets/1.png">
+          <img src="assets/1.png">
+        </mat-radio-button>
+        <mat-radio-button class="radio-button" value="assets/2.png">
+          <img src="assets/2.png">
+        </mat-radio-button>
+        <mat-radio-button class="radio-button" value="assets/3.png">
+          <img src="assets/3.png">
+        </mat-radio-button>
+        <mat-radio-button class="radio-button" value="assets/4.png">
+          <img src="assets/4.png">
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" [(ngModel)]="local_data.tendance" >
+        <mat-label>Tendance :</mat-label>
+        <mat-radio-button class="radio-button" value="assets/a.png">
+          <img src="assets/a.png">
+        </mat-radio-button>
+        <mat-radio-button class="radio-button" value="assets/b.png">
+          <img src="assets/b.png">
+        </mat-radio-button>
+        <mat-radio-button class="radio-button" value="assets/c.png">
+          <img src="assets/c.png">
+        </mat-radio-button>
+      </mat-radio-group> -->
+
+    </div>
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Travaux faits</mat-label>
+      <textarea class="row" matInput [(ngModel)]="local_data.accompli"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Points d'attention</mat-label>
+      <textarea class="row" matInput [(ngModel)]="local_data.attention"></textarea>
+    </mat-form-field>
+
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Travaux en cours / à venir</mat-label>
+      <textarea class="row" matInput [(ngModel)]="local_data.encours"></textarea>
+    </mat-form-field>
+
+  </div>
+
+  <div *ngSwitchCase=" action === 'Upload' ">
+
+    <!-- <mat-toolbar *ngIf="currentFile" class="progress-bar">
+      <mat-progress-bar color="accent" [value]="progress"></mat-progress-bar>
+      <span class="progress">{{ progress }}%</span>
+    </mat-toolbar> -->
+
+    <!-- <mat-form-field class="textInp">
+      <div>
+        <mat-toolbar>
+          <input matInput [value]="fileName" />
+          <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload(local_data.id)"> Upload </button>
+        </mat-toolbar>
+        <input type="file" id="fileInput" multiple (change)="selectFile($event)" name="fileInput"/>
+      </div>
+    </mat-form-field> -->
+
+    <!-- <div *ngIf="message" class="message">
+      {{ message }}
+    </div> -->
+
+    <!-- <mat-card class="list-card">
+      <mat-card-header>
+        <mat-card-title>Liste de documents :</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list role="list">
+          <mat-list-item role="listitem" *ngFor="let doc of local_data.file" class="list-item">
+            <p class="break" matLine>
+              <a href="{{ url+'api/file/dl/'+doc.id }}">{{ doc.name }}</a>
+              <button mat-icon-button color="warn" (click)="deleteUp(doc.id, local_data.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </p>
+          </mat-list-item>
+          <span *ngIf="local_data.file.length == 0 ">Aucun documents</span>
+        </mat-list>
+      </mat-card-content>
+    </mat-card> -->
+  </div>
+
+  <div *ngSwitchCase="action === 'Supprimer'">
+    <p> Êtes-vous sûr de vouloir supprimer le projet : <b>{{local_data.projet}}</b>?</p>
+  </div>
+
+</div>
+
+<div mat-dialog-actions>
+
+  <div *ngIf="action === 'Upload' ; else normal">
+    <button mat-flat-button color="accent" (click)="doAction()"> Terminer </button>
+  </div>
+
+  <ng-template #normal>
+    <button mat-flat-button (click)="doAction()" color="accent"> {{action}} </button>    
+    <button mat-button (click)="closeDialog()">Annuler</button>
+  </ng-template>
+  
+
+</div>
