@@ -1,6 +1,5 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { GetFilmService } from 'src/app/services/get-film.service';
 import { TokenService } from 'src/app/services/token.service';
 
 @Component({
@@ -17,6 +16,7 @@ export class HeaderComponent implements OnInit {
   constructor(private token: TokenService, private router: Router) { }
 
   ngOnInit(): void {
+    this.handleScroll();
   }
 
   searchbar(){
@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
   handleScroll() {
     const windowScroll = window.pageYOffset;
 
-    if (windowScroll >= 10) {
+    if (windowScroll >= 10 || this.router.url === '/profil' ) {
       this.sticky = true;
     } else {
       this.sticky = false;
