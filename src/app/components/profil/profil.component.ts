@@ -10,19 +10,14 @@ import { TokenService } from 'src/app/services/token.service';
 export class ProfilComponent implements OnInit {
 
   user:any;
+  panelOpenState = false;
 
-  constructor(private token: TokenService, private router: Router) { }
+  
+  constructor(private token: TokenService ) { }
 
   ngOnInit(): void {
      this.user = this.token.getUser();
     //  console.log(this.user)
   }
-
-  logout(): void {
-    this.token.signOut();
-    this.router.navigate(['']);
-    // let msg = 'Déconnexion';
-    // this.snackbar(msg);
-  };
-
+ 
 }

@@ -1,10 +1,85 @@
-<div class="container">
-    <mat-toolbar class="toolbar"> <a [routerLink]="'/browse'"><img src="assets/logo.png" class="logo"></a> <button mat-raised-button color="primary" (click)="logout()" >Deconnexion</button> </mat-toolbar>
+<app-header></app-header>
 
-    <p>Email: {{user.email}}</p>
+<div class="container">
+
+  <div class="info">
+    <h2>Vos informations</h2>
+    <!-- <p>Email: {{user.email}}</p>
     <p>Pseudo: {{user.pseudo}}</p>
     <p>Inscrit: {{user.inscription}}</p>
-    <p>Préference: {{user.preference}}</p>
+    <p>Préference: {{user.preference}}</p> -->
+
+    <mat-accordion>
+
+      <mat-expansion-panel disabled>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Email:
+          </mat-panel-title>
+          <mat-panel-description>
+            {{user.email}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel disabled>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Pseudo:
+          </mat-panel-title>
+          <mat-panel-description>
+            {{user.pseudo}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field appearance="outline">
+          <mat-label>Pseudo</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel disabled>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Mot de passe:
+          </mat-panel-title>
+          <mat-panel-description>
+            *******
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field appearance="outline">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel disabled>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Inscription:
+          </mat-panel-title>
+          <mat-panel-description>
+            {{user.inscription}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel disabled>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+           <button mat-raised-button color="warn"> Supprimer mon compte</button>
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+  </div>
+    
 
 
 </div>

@@ -13,6 +13,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import {SlickCarouselModule} from 'ngx-slick-carousel';
 
@@ -63,6 +64,7 @@ import { SerieComponent } from './components/serie/serie.component';
     MatMenuModule,
     SlickCarouselModule,
     MatCheckboxModule,
+    MatExpansionModule,
   ],
   providers: [
     DatePipe
