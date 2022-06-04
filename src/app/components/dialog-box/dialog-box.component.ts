@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -48,7 +48,7 @@ export class DialogBoxComponent implements OnInit {
   fileName = 'Ajouter documents';
   modif = false;
 
-  diaFormControl = new FormControl('', [
+  diaFormControl = new UntypedFormControl('', [
     Validators.required
   ]);
 
