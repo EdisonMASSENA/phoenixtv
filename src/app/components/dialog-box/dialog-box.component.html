@@ -5,98 +5,66 @@
   <div *ngSwitchCase=" action === 'Ajouter' || action === 'Modifier' ">
 
     <mat-form-field class="textInp" appearance="outline">
-      <mat-label>{{action}} Projet</mat-label>
-      <input matInput class="textInp" [(ngModel)]="local_data.projet" required>
+      <mat-label>{{action}} Nom</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.nom" required>
       <mat-error *ngIf="diaFormControl.hasError('required')">
-        Projet <strong>requis</strong>
+        Nom <strong>requis</strong>
        </mat-error>
     </mat-form-field>
 
     <mat-form-field class="textInp" appearance="outline">
-      <mat-label>{{action}} Priorité</mat-label>
-      <input matInput class="textInp" [(ngModel)]="local_data.priorite">
-      <mat-error *ngIf="diaFormControl.hasError('required')">
-        Priorité <strong>requis</strong>
-       </mat-error>
+      <mat-label>{{action}} Desciption</mat-label>
+      <textarea class="row" matInput [(ngModel)]="local_data.description"></textarea>
     </mat-form-field>
 
     <mat-form-field class="textInp" appearance="outline">
-      <mat-label>{{action}} Chef de projet</mat-label>
-      <input matInput class="textInp" [(ngModel)]="local_data.chef" required>
+      <mat-label>{{action}} Durée</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.duree" required>
       <mat-error *ngIf="diaFormControl.hasError('required')">
-       Chef de projet <strong>requis</strong>
+       Durée <strong>requis</strong>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class="textInp" appearance="outline">
-      <mat-label>{{action}} Axe du projet</mat-label>
-      <mat-select [(ngModel)]="local_data.type" >
-        <mat-option [value]="type.value" *ngFor="let type of types">
-          {{ type.value }}
-        </mat-option>
-      </mat-select>
+      <mat-label>{{action}} Acteur</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.acteur" required>
+      <mat-error *ngIf="diaFormControl.hasError('required')">
+       Acteur <strong>requis</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Réalisateur</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.realisateur" required>
+      <mat-error *ngIf="diaFormControl.hasError('required')">
+       Réalisateur <strong>requis</strong>
+      </mat-error>
     </mat-form-field>
       
-    <mat-form-field appearance="fill">
-        <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker">
+    <mat-form-field appearance="outline">
+        <mat-label>Date</mat-label>
+        <input matInput [(ngModel)]="local_data.date" [matDatepicker]="picker">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-
-    <p class="lab">Avancement:</p>
-    <mat-slider class="progRow" thumbLabel="true" tickInterval="25" [(ngModel)]="local_data.progress"></mat-slider>
-
-    <div class="flex">
-
-      <!-- <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" [(ngModel)]="local_data.etat" >
-        <mat-label>État :</mat-label>
-        <mat-radio-button class="radio-button" value="assets/1.png">
-          <img src="assets/1.png">
-        </mat-radio-button>
-        <mat-radio-button class="radio-button" value="assets/2.png">
-          <img src="assets/2.png">
-        </mat-radio-button>
-        <mat-radio-button class="radio-button" value="assets/3.png">
-          <img src="assets/3.png">
-        </mat-radio-button>
-        <mat-radio-button class="radio-button" value="assets/4.png">
-          <img src="assets/4.png">
-        </mat-radio-button>
-      </mat-radio-group>
-
-      <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" [(ngModel)]="local_data.tendance" >
-        <mat-label>Tendance :</mat-label>
-        <mat-radio-button class="radio-button" value="assets/a.png">
-          <img src="assets/a.png">
-        </mat-radio-button>
-        <mat-radio-button class="radio-button" value="assets/b.png">
-          <img src="assets/b.png">
-        </mat-radio-button>
-        <mat-radio-button class="radio-button" value="assets/c.png">
-          <img src="assets/c.png">
-        </mat-radio-button>
-      </mat-radio-group> -->
-
-    </div>
-
-    <mat-form-field class="textInp" appearance="outline">
-      <mat-label>{{action}} Travaux faits</mat-label>
-      <textarea class="row" matInput [(ngModel)]="local_data.accompli"></textarea>
     </mat-form-field>
 
     <mat-form-field class="textInp" appearance="outline">
-      <mat-label>{{action}} Points d'attention</mat-label>
-      <textarea class="row" matInput [(ngModel)]="local_data.attention"></textarea>
+      <mat-label>{{action}} Genre</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.genre" required>
+      <mat-error *ngIf="diaFormControl.hasError('required')">
+       Genre <strong>requis</strong>
+      </mat-error>
     </mat-form-field>
-
 
     <mat-form-field class="textInp" appearance="outline">
-      <mat-label>{{action}} Travaux en cours / à venir</mat-label>
-      <textarea class="row" matInput [(ngModel)]="local_data.encours"></textarea>
+      <mat-label>{{action}} Note</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.note" required>
+      <mat-error *ngIf="diaFormControl.hasError('required')">
+       Note <strong>requis</strong>
+      </mat-error>
     </mat-form-field>
-
+    
   </div>
 
   <div *ngSwitchCase=" action === 'Upload' ">
@@ -141,7 +109,7 @@
   </div>
 
   <div *ngSwitchCase="action === 'Supprimer'">
-    <p> Êtes-vous sûr de vouloir supprimer le projet : <b>{{local_data.projet}}</b>?</p>
+    <p> Êtes-vous sûr de vouloir supprimer {{local_data.type == 'supprf' ? 'le film' : 'la serie'}} : <b>{{local_data.nom}}</b>?</p>
   </div>
 
 </div>

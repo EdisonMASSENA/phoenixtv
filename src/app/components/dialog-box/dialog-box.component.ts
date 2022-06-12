@@ -5,47 +5,39 @@ import { environment } from 'src/environments/environment';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
-
-import {MatDatepicker} from '@angular/material/datepicker';
 import { Film } from 'src/app/interfaces/phx';
 
 
-// import * as _moment from 'moment';
-// import {default as _rollupMoment, Moment} from 'moment';
-// import 'moment/locale/fr';
-// import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
-// import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import 'moment/locale/fr';
+import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 
 
 
 @Component({
   selector: 'app-dialog-box',
   templateUrl: './dialog-box.component.html',
-  styleUrls: ['./dialog-box.component.scss']
+  styleUrls: ['./dialog-box.component.scss'],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+  ],
 })
 export class DialogBoxComponent implements OnInit {
 
- 
-  types= [
-    {value: 'Technique' },
-    {value: 'Numérique' },
-    {value: 'Métier' },
-    {value: 'Étude' },
-    {value: 'Documentation' },
-    {value: 'Organisationnel' }
-  ];
   action: string;
+  type: string;
   local_data: any;
-  moiss: number[] = [];
-  annees: number[] = [];
-  // url = environment.Url;
-  user: any;
   
   message = '';
-  progress = 0;
-  currentFile?: File;
-  fileName = 'Ajouter documents';
+  // currentFile?: File;
+  // fileName = 'Ajouter documents';
   modif = false;
 
   diaFormControl = new UntypedFormControl('', [
@@ -53,21 +45,10 @@ export class DialogBoxComponent implements OnInit {
   ]);
 
   constructor(public dialogRef: MatDialogRef<DialogBoxComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: Film) { this.local_data = { ...data }; this.action = this.local_data.action;  }
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: Film) { this.local_data = { ...data }; this.action = this.local_data.action; this.type = this.local_data.type;  }
 
   ngOnInit(): void {
 
-
-    for (let i = 1; i <= 12; i++) {
-      this.moiss.push(i)
-    };
-
-    for (let i = 2020; i <= 2075; i++) {
-      this.annees.push(i)
-    }; 
-
-    // this.user = this.tokenStorageService.getUser();
-    this.local_data.direction = this.user.username;
 
   }
 
@@ -76,11 +57,16 @@ export class DialogBoxComponent implements OnInit {
 
   doAction() {
 
-    if (this.modif) {
-      this.dialogRef.close({ event: this.action, data: this.local_data });
-    } else {
-      this.dialogRef.close({ event: 'Nomodif', data:'' });
-    }
+
+
+    // if (this.modif) {
+    //   this.dialogRef.close({ event: this.action, data: this.local_data });
+    // } else {
+    //   this.dialogRef.close({ event: 'Nomodif', data:'' });
+    // }
+
+    this.dialogRef.close({ event: this.type, data: this.local_data });
+
 
   }
 

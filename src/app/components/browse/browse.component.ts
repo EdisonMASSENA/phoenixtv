@@ -32,7 +32,7 @@ export class BrowseComponent implements OnInit {
 
 
   filmPopulaire(){
-    this.filmService.getPopular().subscribe({
+    this.filmService.getPopularAll().subscribe({
       next: (data) => {
         this.popular = data.results;
         console.log(this.popular);

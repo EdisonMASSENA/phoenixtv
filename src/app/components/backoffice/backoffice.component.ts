@@ -15,54 +15,95 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class BackofficeComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['titre','action'];
-  dataSource = new MatTableDataSource<Film>();
+  displayedColumns: string[] = ['nom', 'action'];
+
+  dataFilm = new MatTableDataSource<Film>();
+  dataSerie = new MatTableDataSource<Film>();
   msg: any;
 
 
   constructor(private filmService: GetFilmService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.filmPopulaire();
+
+    // this.filmPopulaire();
+
+    // this.seriePopulaire();
+
+    this.recupFilm();
+    this.recupSerie();
+
+    this.dataFilm.filterPredicate = function (film, filter: string): boolean {
+      return film.nom.toLowerCase().includes(filter);
+    };
+
+    this.dataSerie.filterPredicate = function (serie, filter: string): boolean {
+      return serie.nom.toLowerCase().includes(filter);
+    };
+
   }
 
-  filmPopulaire() {
-    this.filmService.getPopular().subscribe({
-      next: (data) => {
-        this.dataSource = data.results;
-        console.log(this.dataSource);
-      },
-      error: (e) => console.error(e)
-    });
+  applyFilterFilm(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataFilm.filter = filterValue.trim().toLowerCase()
+  };
 
-  }
+  applyFilterSerie(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSerie.filter = filterValue.trim().toLowerCase()
+  };
 
 
-  openDialog(action: any, obj: { action: any; }) {
+
+  openDialog(action: any, obj: any, type: any) {
     obj.action = action;
+    obj.type = type;
     const dialogRef = this.dialog.open(DialogBoxComponent, {
       width: '650px',
       data: obj
     });
     dialogRef.afterClosed().subscribe(result => {
       switch (result.event) {
-        case 'Ajouter':
-          this.createTableau(result.data);
-          this.msg = 'Le projet ' + result.data.projet + ' a été ajouté';
+        case 'ajouterf':
+          this.addFilm(result.data);
+          this.msg = 'Le film ' + result.data.nom + ' a été ajouté';
           this.snackbar(this.msg)
           break;
 
-        // case 'Modifier':
-        //   this.editTableau(result.data);
-        //   this.msg = 'Le projet ' + result.data.projet + ' a été modifié'
-        //   this.snackbar(this.msg)
-        //   break;
+        case 'modifierf':
+          this.editFilm(result.data);
+          console.log(result.data);
 
-        // case 'Supprimer':
-        //   this.deleteTableau(result.data);
-        //   this.msg = 'Le projet ' + result.data.projet + ' a été supprimé'
-        //   this.snackbar(this.msg)
-        //   break;
+          this.msg = 'Le film ' + result.data.nom + ' a été modifié'
+          this.snackbar(this.msg)
+          break;
+
+        case 'ajouters':
+          this.addSerie(result.data);
+          this.msg = 'La serie ' + result.data.nom + ' a été ajoutée';
+          this.snackbar(this.msg)
+          break;
+
+        case 'modifiers':
+          this.editSerie(result.data);
+          console.log(result.data);
+
+          this.msg = 'La serie ' + result.data.nom + ' a été modifiée'
+          this.snackbar(this.msg)
+          break;
+
+        case 'supprf':
+          this.deleteFilm(result.data);
+          this.msg = 'Le film ' + result.data.nom + ' a été supprimé'
+          this.snackbar(this.msg)
+          break;
+
+
+        case 'supprs':
+          this.deleteSerie(result.data);
+          this.msg = 'La serie ' + result.data.nom + ' a été supprimée'
+          this.snackbar(this.msg)
+          break;
 
         // case 'Upload':
         //   this.msg = 'Modification effectuée'
@@ -90,16 +131,108 @@ export class BackofficeComponent implements OnInit {
 
   /////////////////////// Ajout Projet ////////////////////
 
-  createTableau(data: Film): void {
-    this.filmService.create(data)
+  addFilm(data: Film): void {
+    this.filmService.addfilm(data)
       .subscribe({
         next: (res) => {
           // console.log(res);
-          this.filmPopulaire();
+          this.recupFilm();
         },
         error: (e) => console.error(e)
       });
   };
+
+  //////////////// Modification des champs /////////////////
+
+
+  editFilm(data: Film): void {
+    this.filmService.editfilm(data)
+      .subscribe({
+        next: (res: any) => {
+          // console.log(res);
+          this.recupFilm();
+        },
+        error: (e) => console.error(e)
+      });
+  };
+
+  deleteFilm(data: any) {
+    this.filmService.deletefilm(data.id)
+    .subscribe({
+      next: (res: any) => {
+        // console.log(res);
+        this.recupFilm();
+      },
+      error: (e) => console.error(e)
+    });
+
+  };
+
+
+  recupFilm(): void {
+    this.filmService.getPopularFilm()
+      .subscribe({
+        next: (data) => {
+          this.dataFilm.data = data.results
+          console.log(data);
+
+        },
+        error: (e) => console.error(e)
+      });
+  };
+
+
+
+
+  addSerie(data: Film): void {
+    this.filmService.addserie(data)
+      .subscribe({
+        next: (res) => {
+          // console.log(res);
+          this.recupSerie();
+        },
+        error: (e) => console.error(e)
+      });
+  };
+
+  //////////////// Modification des champs /////////////////
+
+
+  editSerie(data: Film): void {
+    this.filmService.editserie(data)
+      .subscribe({
+        next: (res: any) => {
+          // console.log(res);
+          this.recupSerie();
+        },
+        error: (e) => console.error(e)
+      });
+  };
+
+  deleteSerie(data: any) {
+    this.filmService.deleteserie(data.id)
+    .subscribe({
+      next: (res: any) => {
+        // console.log(res);
+        this.recupSerie();
+      },
+      error: (e) => console.error(e)
+    });
+
+  };
+
+  recupSerie(): void {
+    this.filmService.getPopularTv()
+      .subscribe({
+        next: (data) => {
+          this.dataSerie.data = data
+          console.log(data);
+
+        },
+        error: (e) => console.error(e)
+      });
+  };
+
 
 
   /////////////////// Snackbar //////////////////////

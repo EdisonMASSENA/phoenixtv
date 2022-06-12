@@ -8,33 +8,13 @@
     margin: 10vh auto;
 }
 
+table{
+    width: 100%;
+}
+
 .actionPill
 {
     border: 2px solid orange ;
     border-radius: 20px;
     display: inline-flex;
-}
-
-.mat-column-action
-{
-    flex: 0 0 8% !important;
-    padding: 5px 5px ;
-    justify-content: center;
-    word-wrap: break-word !important;
-    white-space: pre-wrap !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
-}
-
-.mat-column-titre
-{
-    flex: 0 0 8% !important;
-    padding: 5px 5px ;
-    justify-content: center;
-    word-wrap: break-word !important;
-    white-space: pre-wrap !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
 }
