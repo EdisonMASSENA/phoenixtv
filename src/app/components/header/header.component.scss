@@ -39,17 +39,20 @@ img{
 
 .search{
     font-size: 15px;
+}
+
+.isearch{
     margin-right: 2vw;
 }
 
-::ng-deep .mat-form-field-wrapper {
+.toolbar ::ng-deep .mat-form-field-wrapper {
     padding-bottom: 0px;
 }
 
-::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
-::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+.toolbar ::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+.toolbar ::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
 
-::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+.toolbar ::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
     transform: translateY(-1.1em) scale(.75);
     width: 133.33333%;
 }

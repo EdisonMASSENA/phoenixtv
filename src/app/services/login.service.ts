@@ -15,7 +15,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   create(data:any): Observable<any> {
-    return this.http.post(`${this.url}/create.php`, data);
+    return this.http.post(`${this.url}/signup.php`, data);
   }
 
   login(credentials:any): Observable<any> {

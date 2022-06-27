@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
   date = this.datepipe.transform(this.ndate, 'yyyy/MM/dd');
   keywords = new Set(['Horreur', 'Action', 'Comédie','Science-fiction']);
   
-  diaFormControl = new FormControl('', [
+  diaFormControl = new UntypedFormControl('', [
     Validators.required
   ]);
 

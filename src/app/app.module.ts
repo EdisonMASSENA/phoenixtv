@@ -14,6 +14,11 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog'; 
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import {SlickCarouselModule} from 'ngx-slick-carousel';
 
@@ -31,6 +36,8 @@ import { SliderComponent } from './components/slider/slider.component';
 import { SearchComponent } from './components/search/search.component';
 import { FilmComponent } from './components/film/film.component';
 import { SerieComponent } from './components/serie/serie.component';
+import { BackofficeComponent } from './components/backoffice/backoffice.component';
+import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +52,9 @@ import { SerieComponent } from './components/serie/serie.component';
     SliderComponent,
     SearchComponent,
     FilmComponent,
-    SerieComponent
+    SerieComponent,
+    BackofficeComponent,
+    DialogBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +74,11 @@ import { SerieComponent } from './components/serie/serie.component';
     SlickCarouselModule,
     MatCheckboxModule,
     MatExpansionModule,
+    MatTabsModule,
+    MatTableModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatDatepickerModule,
   ],
   providers: [
     DatePipe

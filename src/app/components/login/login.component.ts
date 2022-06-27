@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
     if (this.token.getToken()) {
       this.isLoggedIn = true;
-      this.router.navigate(['/profil']);
+      this.router.navigate(['/browse']);
     }
 
   }

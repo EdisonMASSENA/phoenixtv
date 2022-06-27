@@ -11,10 +11,10 @@ export class BrowseComponent implements OnInit {
 
   popular: Film[] = [];
   trending: Film[] = [];
-  i = 1;
+  i = 0;
 
   sliderConfig = {
-    slidesToShow: 9,
+    slidesToShow: 8,
     slidesToScroll: 2,
     arrows: true,
     autoplay: false
@@ -32,7 +32,7 @@ export class BrowseComponent implements OnInit {
 
 
   filmPopulaire(){
-    this.filmService.getPopular().subscribe({
+    this.filmService.getPopularAll().subscribe({
       next: (data) => {
         this.popular = data.results;
         console.log(this.popular);

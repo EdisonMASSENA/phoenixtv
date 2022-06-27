@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BackofficeComponent } from './components/backoffice/backoffice.component';
 import { BrowseComponent } from './components/browse/browse.component';
 import { FilmComponent } from './components/film/film.component';
 import { FirstComponent } from './components/first/first.component';
@@ -16,8 +17,9 @@ const routes: Routes = [
   { path: 'profil', component: ProfilComponent },
   { path: 'browse', component: BrowseComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'film', component: FilmComponent },
-  { path: 'serie', component: SerieComponent },
+  { path: 'films', component: FilmComponent },
+  { path: 'series', component: SerieComponent },
+  { path: 'backoffice', component: BackofficeComponent },
 ];
 
 @NgModule({

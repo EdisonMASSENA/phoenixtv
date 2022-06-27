@@ -10,9 +10,14 @@ export interface User {
 export interface Film {
     id:number;
     nom:string;
+    acteur:string;
+    realisateur:string;
+    genre:string;
+    description:string;
     duree:string;
-    affiche:Blob;
-    video:Blob;
+    note:string;
+    date:string;
+
     results:string;
     backdrop_path:string;
     title: string;

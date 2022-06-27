@@ -1,0 +1,129 @@
+<h1 mat-dialog-title> Action :: <strong>{{action}}</strong></h1>
+
+<div mat-dialog-content [ngSwitch]="true">
+
+  <div *ngSwitchCase=" action === 'Ajouter' || action === 'Modifier' ">
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Nom</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.nom" required>
+      <mat-error *ngIf="diaFormControl.hasError('required')">
+        Nom <strong>requis</strong>
+       </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Desciption</mat-label>
+      <textarea class="row" matInput [(ngModel)]="local_data.description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Durée</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.duree" required>
+      <mat-error *ngIf="diaFormControl.hasError('required')">
+       Durée <strong>requis</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Acteur</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.acteur" required>
+      <mat-error *ngIf="diaFormControl.hasError('required')">
+       Acteur <strong>requis</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Réalisateur</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.realisateur" required>
+      <mat-error *ngIf="diaFormControl.hasError('required')">
+       Réalisateur <strong>requis</strong>
+      </mat-error>
+    </mat-form-field>
+      
+    <mat-form-field appearance="outline">
+        <mat-label>Date</mat-label>
+        <input matInput [(ngModel)]="local_data.date" [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Genre</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.genre" required>
+      <mat-error *ngIf="diaFormControl.hasError('required')">
+       Genre <strong>requis</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="textInp" appearance="outline">
+      <mat-label>{{action}} Note</mat-label>
+      <input matInput class="textInp" [(ngModel)]="local_data.note" required>
+      <mat-error *ngIf="diaFormControl.hasError('required')">
+       Note <strong>requis</strong>
+      </mat-error>
+    </mat-form-field>
+    
+  </div>
+
+  <div *ngSwitchCase=" action === 'Upload' ">
+
+    <!-- <mat-toolbar *ngIf="currentFile" class="progress-bar">
+      <mat-progress-bar color="accent" [value]="progress"></mat-progress-bar>
+      <span class="progress">{{ progress }}%</span>
+    </mat-toolbar> -->
+
+    <!-- <mat-form-field class="textInp">
+      <div>
+        <mat-toolbar>
+          <input matInput [value]="fileName" />
+          <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload(local_data.id)"> Upload </button>
+        </mat-toolbar>
+        <input type="file" id="fileInput" multiple (change)="selectFile($event)" name="fileInput"/>
+      </div>
+    </mat-form-field> -->
+
+    <!-- <div *ngIf="message" class="message">
+      {{ message }}
+    </div> -->
+
+    <!-- <mat-card class="list-card">
+      <mat-card-header>
+        <mat-card-title>Liste de documents :</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list role="list">
+          <mat-list-item role="listitem" *ngFor="let doc of local_data.file" class="list-item">
+            <p class="break" matLine>
+              <a href="{{ url+'api/file/dl/'+doc.id }}">{{ doc.name }}</a>
+              <button mat-icon-button color="warn" (click)="deleteUp(doc.id, local_data.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </p>
+          </mat-list-item>
+          <span *ngIf="local_data.file.length == 0 ">Aucun documents</span>
+        </mat-list>
+      </mat-card-content>
+    </mat-card> -->
+  </div>
+
+  <div *ngSwitchCase="action === 'Supprimer'">
+    <p> Êtes-vous sûr de vouloir supprimer {{local_data.type == 'supprf' ? 'le film' : 'la serie'}} : <b>{{local_data.nom}}</b>?</p>
+  </div>
+
+</div>
+
+<div mat-dialog-actions>
+
+  <div *ngIf="action === 'Upload' ; else normal">
+    <button mat-flat-button color="accent" (click)="doAction()"> Terminer </button>
+  </div>
+
+  <ng-template #normal>
+    <button mat-flat-button (click)="doAction()" color="accent"> {{action}} </button>    
+    <button mat-button (click)="closeDialog()">Annuler</button>
+  </ng-template>
+  
+
+</div>
