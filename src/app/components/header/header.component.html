@@ -10,11 +10,14 @@
 
     <div class="right">
 
-        <mat-form-field  class="search" color="accent" appearance="outline">
+        <mat-form-field class="search" [@search]="search ? 'expanded' : 'collapsed' " color="accent" appearance="outline">
             <mat-label>Recherche</mat-label>
-            <input matInput [(ngModel)]="research" (keyup.enter)="searchbar()">
-            <mat-icon matSuffix>search</mat-icon>
+            <input #inpsea matInput [(ngModel)]="research" (keyup.enter)="searchbar()" (blur)="research == '' || research == null ? search = false : search = true" >
+            <button *ngIf="research" matSuffix mat-icon-button aria-label="Clear" (click)="research=''">
+                <mat-icon>close</mat-icon>
+            </button>
         </mat-form-field>
+        <button class="isearch" (click)=" focus(); search = true " mat-icon-button matSuffix> <mat-icon>search</mat-icon> </button>
 
         <button mat-icon-button [matMenuTriggerFor]="menu">
             <mat-icon>account_circle</mat-icon>
@@ -28,7 +31,7 @@
             <button routerLink="/backoffice" mat-menu-item>
                 <mat-icon>admin_panel_settings</mat-icon>
                 <span>Admin</span>
-              </button>
+            </button>
             <button (click)="logout()" mat-menu-item>
               <mat-icon>logout</mat-icon>
               <span>Deconnexion</span>

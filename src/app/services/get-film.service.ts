@@ -6,6 +6,7 @@ import { Film } from '../interfaces/phx';
 @Injectable({
   providedIn: 'root'
 })
+
 export class GetFilmService {
 
   private url = "http://localhost/api-phx";

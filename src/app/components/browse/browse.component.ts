@@ -11,10 +11,10 @@ export class BrowseComponent implements OnInit {
 
   popular: Film[] = [];
   trending: Film[] = [];
-  i = 1;
+  i = 0;
 
   sliderConfig = {
-    slidesToShow: 9,
+    slidesToShow: 8,
     slidesToScroll: 2,
     arrows: true,
     autoplay: false

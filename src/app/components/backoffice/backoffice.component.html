@@ -1,4 +1,10 @@
-<mat-toolbar> <span>Centre Administrateur</span> </mat-toolbar>
+<mat-toolbar id="adminbar">
+  <button mat-icon-button >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Centre Administrateur</span>
+  <a routerLink="/browse"><img src="assets/logo.png"  class="logo"></a>
+</mat-toolbar>
 
 <div class="container">
   <mat-tab-group mat-align-tabs="center">
@@ -6,11 +12,11 @@
     <mat-tab label="Gestion des films">
 
       <mat-form-field appearence="fill" class="rech" color="accent">
-        <mat-label>Rechercher un projet</mat-label>
+        <mat-label>Rechercher un film</mat-label>
         <input matInput (keyup)="applyFilterFilm($event)" placeholder="Nom projet" #input>
       </mat-form-field>
 
-      <button mat-raised-button color="accent"  (click)="openDialog('Ajouter',{},'ajouterf')"> Nouveau Projet</button>
+      <button mat-raised-button color="accent" (click)="openDialog('Ajouter',{},'ajouterf')">Ajouter un film</button>
 
       <table mat-table [dataSource]="dataFilm" class="mat-elevation-z8">
 
@@ -29,7 +35,8 @@
                 <mat-icon>edit</mat-icon>
               </button>
 
-              <button mat-icon-button matTooltip="Supprimer" color="warn" (click)="openDialog('Supprimer',film,'supprf')">
+              <button mat-icon-button matTooltip="Supprimer" color="warn"
+                (click)="openDialog('Supprimer',film,'supprf')">
                 <mat-icon>delete</mat-icon>
               </button>
 
@@ -50,7 +57,7 @@
         <input matInput (keyup)="applyFilterSerie($event)" placeholder="Nom série" #input>
       </mat-form-field>
 
-      <button mat-raised-button color="accent"  (click)="openDialog('Ajouter',{},'ajouters')"> Nouveau Projet</button>
+      <button mat-raised-button color="accent" (click)="openDialog('Ajouter',{},'ajouters')">Ajouter une série</button>
 
       <table mat-table [dataSource]="dataSerie" class="mat-elevation-z8">
 
@@ -69,7 +76,8 @@
                 <mat-icon>edit</mat-icon>
               </button>
 
-              <button mat-icon-button matTooltip="Supprimer" color="warn" (click)="openDialog('Supprimer',serie,'supprs')">
+              <button mat-icon-button matTooltip="Supprimer" color="warn"
+                (click)="openDialog('Supprimer',serie,'supprs')">
                 <mat-icon>delete</mat-icon>
               </button>
 

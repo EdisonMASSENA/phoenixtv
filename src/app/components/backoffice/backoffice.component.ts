@@ -34,7 +34,7 @@ export class BackofficeComponent implements OnInit {
     this.recupSerie();
 
     this.dataFilm.filterPredicate = function (film, filter: string): boolean {
-      return film.nom.toLowerCase().includes(filter);
+      return film.title.toLowerCase().includes(filter);
     };
 
     this.dataSerie.filterPredicate = function (serie, filter: string): boolean {
@@ -222,7 +222,7 @@ export class BackofficeComponent implements OnInit {
   };
 
   recupSerie(): void {
-    this.filmService.getPopularTv()
+    this.filmService.getserie()
       .subscribe({
         next: (data) => {
           this.dataSerie.data = data
