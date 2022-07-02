@@ -32,7 +32,7 @@ export class FilmComponent implements OnInit {
 
 
   filmPopulaire(){
-    this.filmService.getPopularFilm().subscribe({
+    this.filmService.filmTrend().subscribe({
       next: (data) => {
         this.popular = data.results;
         console.log(this.popular);

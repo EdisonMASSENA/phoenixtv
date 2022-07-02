@@ -31,7 +31,7 @@ export class SerieComponent implements OnInit {
 
 
   tvPopulaire(){
-    this.filmService.getPopularTv().subscribe({
+    this.filmService.tvTrend().subscribe({
       next: (data) => {
         this.popular = data.results;
         console.log(this.popular);

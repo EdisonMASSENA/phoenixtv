@@ -24,17 +24,18 @@ export class BrowseComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.filmPopulaire();
+    this.tvTrend();
     this.filmTrend();
 
   
   }
 
 
-  filmPopulaire(){
-    this.filmService.getPopularAll().subscribe({
+  tvTrend(){
+    this.filmService.tvTrend().subscribe({
       next: (data) => {
         this.popular = data.results;
+        // this.popular = this.popular.splice(0,19);
         console.log(this.popular);
       },
       error: (e) => console.error(e)
@@ -44,9 +45,10 @@ export class BrowseComponent implements OnInit {
 
 
   filmTrend(){
-    this.filmService.getTrend().subscribe({
+    this.filmService.filmTrend().subscribe({
       next: (data) => {
         this.trending = data.results;
+        // this.trending = this.trending.splice(0,19);
         console.log(this.trending);
       },
       error: (e) => console.error(e)

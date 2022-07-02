@@ -1,12 +1,20 @@
 mat-card{
   width: 169px;
   margin: 1em;
+  padding-bottom: 0;
   transition: all 0.3s ease;
+  background: transparent ;
+
 }
 
 mat-card:hover{
   transform: scale(1.02);
   cursor: pointer;
+}
+
+img {
+  border-radius: 5px;
+  margin-bottom: 0;
 }
 
 .results{

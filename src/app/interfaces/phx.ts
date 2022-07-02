@@ -23,4 +23,5 @@ export interface Film {
     title: string;
     poster_path:string;
     name:string;
+    media_type:any;
 }

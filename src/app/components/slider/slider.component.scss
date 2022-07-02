@@ -6,6 +6,7 @@ h2 {
 
 img {
   border-radius: 5px;
+  margin-bottom: 0;
 }
 
 .movie {
@@ -23,8 +24,12 @@ img {
 
       .slick-item:hover {
         transform: scale(1.02);
-        cursor: pointer;
+        // cursor: pointer;
       }
     }
   }
+}
+
+mat-card{
+  padding-bottom: 0;
 }

@@ -38,6 +38,7 @@ import { FilmComponent } from './components/film/film.component';
 import { SerieComponent } from './components/serie/serie.component';
 import { BackofficeComponent } from './components/backoffice/backoffice.component';
 import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
+import { DetailComponent } from './components/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { DialogBoxComponent } from './components/dialog-box/dialog-box.component
     FilmComponent,
     SerieComponent,
     BackofficeComponent,
-    DialogBoxComponent
+    DialogBoxComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

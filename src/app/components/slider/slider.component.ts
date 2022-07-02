@@ -9,7 +9,8 @@ export class SliderComponent implements OnInit {
 
   @Input() sliderConfig: any;
   @Input() films : any;
-  @Input() title: string = '';
+  @Input() cat: any;
+  @Input() type: any;
 
   constructor() { }
 

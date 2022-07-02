@@ -170,7 +170,7 @@ export class BackofficeComponent implements OnInit {
 
 
   recupFilm(): void {
-    this.filmService.getPopularFilm()
+    this.filmService.filmTrend()
       .subscribe({
         next: (data) => {
           this.dataFilm.data = data.results

@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 
-<div class="header__banner" [ngStyle]="{'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url(http://image.tmdb.org/t/p/original/' + trending[i].poster_path +')'}">
+<div class="header__banner" [ngStyle]="{'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url(http://image.tmdb.org/t/p/original/' + trending[i].backdrop_path +')'}">
   
 
   <div class="titlebloc">
@@ -14,9 +14,9 @@
         <span>Play</span>
       </button>
   
-      <button mat-stroked-button class="more">
+      <button [routerLink]="['/detail', 'movie' ,trending[i].id]" mat-stroked-button class="more">
         <mat-icon>info</mat-icon>
-        <span>More Info</span>
+        <span>Info</span>
       </button>
 
     </div>
@@ -27,6 +27,6 @@
 </div>
 
 <div class="slide" >
-  <app-slider title="Trending" [films]="trending" [sliderConfig]="sliderConfig"></app-slider>
-  <app-slider title="Popular" [films]="popular" [sliderConfig]="sliderConfig"></app-slider>
+  <app-slider cat="Trending" type="movie" [films]="trending" [sliderConfig]="sliderConfig"></app-slider>
+  <app-slider cat="Popular" type="tv" [films]="popular" [sliderConfig]="sliderConfig"></app-slider>
 </div>
