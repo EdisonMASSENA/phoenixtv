@@ -9,7 +9,7 @@
     <h2>{{trending[i].title || trending[i].name}}</h2>
     <div class="buttons">
 
-      <button mat-flat-button color="primary" class="play">
+      <button (click)="player = 'open'" mat-flat-button color="primary" class="play">
         <mat-icon>play_arrow</mat-icon>
         <span>Play</span>
       </button>
@@ -27,6 +27,23 @@
 </div>
 
 <div class="slide" >
-  <app-slider cat="Trending" type="movie" [films]="trending" [sliderConfig]="sliderConfig"></app-slider>
-  <app-slider cat="Popular" type="tv" [films]="popular" [sliderConfig]="sliderConfig"></app-slider>
+  <app-slider cat="Films Populaire" type="movie" [films]="trending" [sliderConfig]="sliderConfig"></app-slider>
+  <app-slider cat="Séries Populaire" type="tv" [films]="popular" [sliderConfig]="sliderConfig"></app-slider>
+</div>
+
+
+<div  [@player]="player" >
+
+  <!-- <vg-player>
+      <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" controls>
+          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+      </video>
+  </vg-player> -->
+
+  <button mat-icon-button class="close" (click)="player = 'close'" >
+      <mat-icon>close</mat-icon>
+  </button>
+
+  <iframe width="100%" height="100%" [src]="url()" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 </div>

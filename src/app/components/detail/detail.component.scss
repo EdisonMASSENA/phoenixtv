@@ -56,3 +56,11 @@ table{
 td{
     font-size: 1.1rem;
 }
+
+.close{
+    left: 50%;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}

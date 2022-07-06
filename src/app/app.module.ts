@@ -20,7 +20,13 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 
+
 import {SlickCarouselModule} from 'ngx-slick-carousel';
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -56,7 +62,7 @@ import { DetailComponent } from './components/detail/detail.component';
     SerieComponent,
     BackofficeComponent,
     DialogBoxComponent,
-    DetailComponent
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +87,10 @@ import { DetailComponent } from './components/detail/detail.component';
     MatDialogModule,
     MatSelectModule,
     MatDatepickerModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [
     DatePipe

@@ -9,6 +9,8 @@ import { Film } from '../interfaces/phx';
 
 export class GetFilmService {
 
+  private api_key = "c04ac87410132d6f3b9895aa33fef9d0";
+
   private url = "http://localhost/api-phx";
 
   constructor(private http: HttpClient) { }
@@ -35,33 +37,51 @@ export class GetFilmService {
 
   searchAll(reasearch: any): Observable<any> {
     // return this.http.get(`${this.url}/getFilm.php`);
-    return this.http.get(`https://api.themoviedb.org/3/search/multi?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US&query=${reasearch}&page=1&include_adult=false`);
+    return this.http.get(`https://api.themoviedb.org/3/search/multi?api_key=${this.api_key}&language=en-US&query=${reasearch}&page=1&include_adult=false`);
   }
 
   detailtv(videoId: any): Observable<any> {
     // return this.http.get(`${this.url}/getfilm.php`, videoId);
-    return this.http.get(`https://api.themoviedb.org/3/tv/${videoId}?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=fr-FR`);
+    return this.http.get(`https://api.themoviedb.org/3/tv/${videoId}?api_key=${this.api_key}&language=fr-FR`);
   }
 
   detailmovie(videoId: any): Observable<any> {
     // return this.http.get(`${this.url}/getfilm.php`, videoId);
-    return this.http.get(`https://api.themoviedb.org/3/movie/${videoId}?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=fr-FR`);
+    return this.http.get(`https://api.themoviedb.org/3/movie/${videoId}?api_key=${this.api_key}&language=fr-FR`);
   }
 
 
   tvTrend(): Observable<any> {
     // return this.http.get(`${this.url}/getFilm.php`);
-    return this.http.get(`https://api.themoviedb.org/3/tv/popular?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US&page=1`);
+    return this.http.get(`https://api.themoviedb.org/3/tv/popular?api_key=${this.api_key}&language=en-US&page=1`);
   }
 
   filmTrend(): Observable<any> {
     // return this.http.get(`${this.url}/getFilm.php`);
-    return this.http.get(`https://api.themoviedb.org/3/movie/popular?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US&page=1`);
+    return this.http.get(`https://api.themoviedb.org/3/movie/popular?api_key=${this.api_key}&language=en-US&page=1`);
   }
 
-  imdbDetail(videoId: any){
-    return this.http.get(`https://imdb-api.com/fr/API/Title/k_9bt9v0l7/${videoId}`);
+  castMovie(videoId: any): Observable<any> {
+    // return this.http.get(`${this.url}/getFilm.php`);
+    return this.http.get(`https://api.themoviedb.org/3/movie/${videoId}/credits?api_key=${this.api_key}&language=en-US`);
   }
+
+  castTv(videoId: any): Observable<any> {
+    // return this.http.get(`${this.url}/getFilm.php`);
+    return this.http.get(`https://api.themoviedb.org/3/tv/${videoId}/credits?api_key=${this.api_key}&language=en-US`);
+  }
+
+  videoMovie(videoId: any){
+    return this.http.get(`https://api.themoviedb.org/3/movie/${videoId}/videos?api_key=${this.api_key}&language=en-US`);
+  }
+
+  videoTv(videoId: any){
+    return this.http.get(`https://api.themoviedb.org/3/tv/${videoId}/videos?api_key=${this.api_key}&language=en-US`);
+  }
+
+  // imdbDetail(videoId: any){
+  //   return this.http.get(`https://imdb-api.com/fr/API/Title/k_9bt9v0l7/${videoId}`); 
+  // }
 
 
 
@@ -101,17 +121,17 @@ export class GetFilmService {
   
   // getPopularAll(): Observable<any> {
   //   // return this.http.get(`${this.url}/getFilm.php`);
-  //   return this.http.get("https://api.themoviedb.org/3/movie/popular?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US&page=1");
+  //   return this.http.get("https://api.themoviedb.org/3/movie/popular?api_key=${this.api_key}&language=en-US&page=1");
   // }
 
   // getLatestAll(): Observable<any> {
   //   // return this.http.get(`${this.url}/getFilm.php`);
-  //   return this.http.get("https://api.themoviedb.org/3/movie/latest?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US&page=1");
+  //   return this.http.get("https://api.themoviedb.org/3/movie/latest?api_key=${this.api_key}&language=en-US&page=1");
   // }
 
   // getTrend(): Observable<any> {
   //   // return this.http.get(`${this.url}/getFilm.php`);
-  //   return this.http.get("https://api.themoviedb.org/3/trending/all/week?api_key=c04ac87410132d6f3b9895aa33fef9d0&language=en-US&page=1");
+  //   return this.http.get("https://api.themoviedb.org/3/trending/all/week?api_key=${this.api_key}&language=en-US&page=1");
   // }
 
 

@@ -1,7 +1,7 @@
 .header__banner {
   background-size: cover;
   width:100%;
-  height: 85vh;
+  height: 75vh;
 }
 
 .slide{
@@ -15,7 +15,7 @@ h2 {
 }
 
 .titlebloc{
-  padding-top: 45vh;
+  padding-top: 30vh;
   margin-left: 3vw;
 }
 
@@ -25,4 +25,12 @@ h2 {
 
 .more{
   margin-left: 3vw; 
+}
+
+.close{
+  left: 50%;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
 }
